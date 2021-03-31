@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Photobooth() {
+function Photoboo() {
     return (
-        
+        <div></div>
     )
 }
 
-export default Photobooth;
+export default Photoboo;

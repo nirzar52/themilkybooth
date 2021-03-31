@@ -1,99 +1,45 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from "react-router-dom";
+
+import Home from "./Home";
+import Form from "./Form";
+import TermsAndConditions from "./TermsAndConditions";
+import Photobooth from "./Photobooth";
 
 function Header() {
     return (
+        <Router>
         <header className="top-bar" id="main-menu">
             <section className="grid-container">
                 <section className="grid-x top-container">
                     <section className="top-bar-left logo">
-                        <a href="index.html">
-                            <img
-                                src="/images/logo_booth.png"
-                                alt="The Milky Booth"
-                            />
-                        </a>
+                        <Link to="/"><img src="/images/logo_booth.png" alt="The Milky Booth"/></Link>
+                        <Link to="/form">Form</Link>
+                        <Link to="/photobooth">Form</Link>
+                        <Link to="/terms">Terms And Conditions</Link>
                     </section>
                     <section className="top-bar-right">
                         <ul className="social-menu">
-                            <li>
-                                <a href="#">
-                                    <img
-                                        src="/images/facebook.png"
-                                        alt="facebook"
-                                    />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img
-                                        src="/images/instagram.png"
-                                        alt="instagram"
-                                    />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img
-                                        src="/images/youtube.png"
-                                        alt="youtube"
-                                    />
-                                </a>
-                            </li>
+                            <li><a href="#"><img src="/images/facebook.png" alt="facebook" /></a></li>
+                            <li><a href="#"><img src="/images/instagram.png" alt="instagram" /></a></li>
+                            <li><a href="#"><img src="/images/youtube.png" alt="youtube" /></a></li>
                         </ul>
                     </section>
                 </section>
             </section>
-
-            <p className="confirmBtn">
-                <button
-                    className="button"
-                    id="successRevealBtn"
-                    data-open="successReveal"
-                >
-                    Click Me
-                </button>
-            </p>
-
-            <section className="reveal" id="successReveal" data-reveal>
-                <section className="success-container">
-                    <section className="grid-y grid-padding-y confirm-container">
-                        <section className="confirm-svg">
-                            <img src="/images/true.png" alt="Confirmation" />
-                        </section>
-                        <section className="grid-x">
-                            <section className="cell large-8 confirm-message">
-                                <section className="grid-y grid-padding-y text-center">
-                                    <section className="cell confirmation">
-                                        <h2>Congratulations!</h2>
-                                    </section>
-                                    <section className="cell confirmation">
-                                        <p>
-                                            You are successfully registered for
-                                            the contest!
-                                        </p>
-                                    </section>
-                                    <section className="cell confirmation">
-                                        <a href="./index.html">
-                                            <section className="button">
-                                                Continue
-                                            </section>
-                                        </a>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                    </section>
-                    <button
-                        className="close-button"
-                        data-close
-                        aria-label="Close modal"
-                        type="button"
-                    >
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </section>
-            </section>
         </header>
+        <Switch>
+            <Route path="/"><Home/></Route>
+            <Route path="/form"><Form/></Route>
+            <Route path="/terms"><TermsAndConditions/></Route>
+            <Route path="/photobooth"><Photobooth/></Route>
+        </Switch>
+        </Router>
     );
 }
 
