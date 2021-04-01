@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Photoboo() {
+function Photobooth() {
     return (
-        <div></div>
+        <div className="Photobooth">
+            Photobooth
+        </div>
     )
 }
 
-export default Photoboo;
+export default Photobooth

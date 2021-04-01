@@ -1,17 +1,42 @@
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import 'foundation-sites/dist/css/foundation.min.css';
+import { Grid, Cell } from 'react-foundation';
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
 
-class App extends React.Component {
-    render() {
-        return <div className="App">
-            <Header/>
-            <Home/>
-            <Footer/>
-        </div>;
-    }
+import Home from "./components/Home";
+import Form from "./components/Form";
+import Terms from "./components/Terms";
+import Photobooth from "./components/Photobooth";
+
+function App() {
+    return (
+        <>
+            <Header />
+            <Router>
+                <div className="App">
+                    <div className="grid-basics-example">
+                        <Grid className="display">
+                            <Cell large={3}><Link to="/">Home</Link></Cell>
+                            <Cell large={3}><Link to="/form">Form</Link></Cell>
+                            <Cell large={3}><Link to="/terms">Terms and Conditions</Link></Cell>
+                            <Cell large={3}><Link to="/photobooth">Photobooth</Link></Cell>
+                        </Grid>
+                    </div>
+
+                    <Switch>
+                        <Route exact path="/"><Home /></Route>
+                        <Route path="/form" component={ Form }/>
+                        <Route path="/terms" component={ Terms } />
+                        <Route path="/photobooth" component={ Photobooth } />
+                    </Switch>
+                </div>
+            </Router>
+            <Footer />
+        </>
+    );
 }
 
 export default App;
