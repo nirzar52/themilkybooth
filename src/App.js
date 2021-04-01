@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import 'foundation-sites/dist/css/foundation.min.css';
-import { Grid, Cell } from 'react-foundation';
+
+import './App.css';
+
+import { Grid, Cell } from "react-foundation";
+import "foundation-sites/dist/css/foundation.min.css";
+
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -10,8 +16,17 @@ import Home from "./components/Home";
 import Form from "./components/Form";
 import Terms from "./components/Terms";
 import Photobooth from "./components/Photobooth";
+import Thanks from "./components/Thanks";
 
 function App() {
+
+    const [namer, setNamer] = useState("");
+
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        setNamer(e.target.value);
+    };
+
     return (
         <>
             <Header />
@@ -19,18 +34,18 @@ function App() {
                 <div className="App">
                     <div className="grid-basics-example">
                         <Grid className="display">
-                            <Cell large={3}><Link to="/">Home</Link></Cell>
-                            <Cell large={3}><Link to="/form">Form</Link></Cell>
-                            <Cell large={3}><Link to="/terms">Terms and Conditions</Link></Cell>
-                            <Cell large={3}><Link to="/photobooth">Photobooth</Link></Cell>
+                            <Cell small={6} large={3}><Link to="/">Home</Link></Cell>
+                            <Cell small={6} large={3}><Link to="/form">Form</Link></Cell>
+                            <Cell small={6} large={3}><Link to="/terms">Terms Of Use</Link></Cell>
+                            <Cell small={6} large={3}><Link to="/photobooth">Photobooth</Link></Cell>
                         </Grid>
                     </div>
 
                     <Switch>
-                        <Route exact path="/"><Home /></Route>
-                        <Route path="/form" component={ Form }/>
-                        <Route path="/terms" component={ Terms } />
-                        <Route path="/photobooth" component={ Photobooth } />
+                        <Route exact path="/" children={ <Form handleChange={(e) => handleChange(e)} /> } />
+                        <Route path="/thanks" children={<Thanks namer={namer} />} />
+                        <Route path="/terms" component={Terms} />
+                        <Route path="/photobooth" component={Photobooth} />
                     </Switch>
                 </div>
             </Router>

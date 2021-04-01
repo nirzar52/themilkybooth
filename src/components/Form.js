@@ -1,11 +1,21 @@
-import React from 'react'
+import { withRouter } from "react-router-dom";
 
-function Form() {
+function Form(props) {
+    function goToThanks(e) {
+        e.preventDefault();
+        props.history.push("/thanks");
+    }
+
     return (
         <div className="Form">
-            Form
+            <form onSubmit={goToThanks}>
+                <label>Name:
+                    <input type="text" onChange={props.handleChange} />
+                    <input className="button" type="submit" value="Submit"/>
+                </label>
+            </form>
         </div>
-    )
+    );
 }
 
-export default Form
+export default withRouter(Form);
