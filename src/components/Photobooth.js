@@ -34,7 +34,7 @@ function Photobooth() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step1.png" className="step" />
+                                                <img src="../images/step1.png" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -52,7 +52,7 @@ function Photobooth() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step2.png" className="step" />
+                                                <img src="../images/step2.png" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -70,7 +70,7 @@ function Photobooth() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step3.png" className="step" />
+                                                <img src="../images/step3.png" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -88,7 +88,7 @@ function Photobooth() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step4.png" className="step" />
+                                                <img src="../images/step4.png" className="step" />
                                             </div>
                                         </section>
                                     </section>

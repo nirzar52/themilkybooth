@@ -2,7 +2,7 @@ import React from 'react'
 
 function Terms() {
     return (
-        <div className="Terms">
+        <div className="Terms mb-50">
             <section className="callout term-title page-title">
                 <section className="grid-container">
                     <h1 className="text-center small-text-left">Term and conditions</h1>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Form() {
     return (
-        <div className="Form">
+        <div className="Form mb-50">
             <section className="contest-info page-title">
             <section className="grid-container text-center">
                 <h1>The prizes and chances of winning</h1>

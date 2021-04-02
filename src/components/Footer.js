@@ -1,6 +1,10 @@
 import React from "react";
 
-function Footer() {
+function Footer(props) {
+    function goToTerms(e) {
+        e.preventDefault();
+        props.history.push("/terms");
+    }
     return (
         <div className="Footer">
             <footer className="footer">
@@ -10,7 +14,8 @@ function Footer() {
                             <p>&copy; All rights reserved - 2021</p>
                         </section>
                         <section className="cell large-6 small-12 text-right">
-                            <a className="footer-links" href="term-condition.html">Terms and Conditions
+                            <a className="footer-links" onClick={goToTerms}>
+                                Terms and Conditions
                             </a>
                         </section>
                     </section>
