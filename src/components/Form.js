@@ -1,66 +1,68 @@
-import { withRouter } from "react-router-dom";
+import React from "react";
 
-function Form(props) {
-    function goToThanks(e) {
-        e.preventDefault();
-        props.history.push("/thanks");
-    }
-
+function Form() {
     return (
         <div className="Form">
-
-<section className="callout large contest-info">
-            <section className="grid-container">
-                <h1 className="text-center small-text-left">The prizes and chances of winning</h1>
-                <section className="row column text-center small-text-justify">
+            <section className="contest-info page-title">
+            <section className="grid-container text-center">
+                <h1>The prizes and chances of winning</h1>
+                <section className="row column">
                     <p>Every customer of our product got a chance of winning a free dairy package!</p>
-                    <p><strong>Yogurt tips:</strong> winners will be determined by random draw but may have their
-                        entries removed for any reason by the judges.</p>
+                    <p><strong>Yogurt tips:</strong> winners will be determined by random draw but may have their entries removed for any reason by the judges.</p>
                     <p>Users under the age of 16 are not eligible for the activity without a guardian's permission.</p>
                 </section>
             </section>
         </section>
         <section className="grid-container">
             <section className="grid-x grid-padding-x">
-                <section className="cell large-8 skill-test">
-                    <section className="skill-title">Skill Test</section>
+                <section className="cell large-6 skill-test">
+                    <legend className="skill-title">Skill Test</legend>
                     <form className="grid-y" action="#">
                         <label for="skillTest" id="skillTest">import_question_here</label>
                         <section className="grid-x">
                             <section className="cell large-3"></section>
                             <section className="cell large-6">
-                                <input className="input-box" type="text" name="skillTestInput" id="skillTestInput"
-                                    placeholder="Answer the question here.." />
+                                <input className="input-box" type="text" name="skillTestInput" id="skillTestInput" placeholder="Answer of the question" />
                             </section>
                             <section className="cell large-3"></section>
                         </section>
-
+                        
                         <p className="error-msg" id="skillTestError">error_here</p>
                     </form>
                 </section>
                 <section className="cell large-12">
-                    <form className="grid-x" action="#" onSubmit={goToThanks}>
+                    <form className="grid-x" action="#">
                         <section className="cell large-8">
                             <fieldset>
                                 <legend>Personal Information</legend>
                                 <section className="grid-x grid-padding-x">
-                                    <section className="cell large-6">
+                                    <section className="cell large-2">
+                                        <label for="salutation">Prefix
+                                            <select name="salutation" id="salutation">
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Miss">Miss</option>
+                                            </select>
+                                        </label>
+                                        <p className="error-msg" id="salutationError">error_here</p>
+                                    </section>
+                                    <section className="cell large-5">
                                         <label for="firstName">First Name
-                                            <input type="text" className="input-box" name="firstName" id="firstName" onChange={props.firstNameChange} value={this.state.fr}
+                                            <input type="text" className="input-box" name="firstName" id="firstName"
                                                 placeholder="Enter your First name" />
                                         </label>
                                         <p className="error-msg" id="firstNameError">error_here</p>
                                     </section>
-                                    <section className="cell large-6">
+                                    <section className="cell large-5">
                                         <label for="lastName">Last Name
-                                            <input type="text" className="input-box" name="lastName" id="lastName" onChange={props.lastNameChange}
+                                            <input type="text" className="input-box" name="lastName" id="lastName"
                                                 placeholder="Enter your Last name" />
                                         </label>
                                         <p className="error-msg" id="lastNameError">error_here</p>
                                     </section>
-                                    <section className="cell large-6">
+                                    <section className="cell large-8">
                                         <label for="dateOfBirth">Date of Birth
-                                            <input type="date" className="input-box" name="dateOfBirth" id="dateOfBirth" onChange={props.firstNameChange}
+                                            <input type="date" className="input-box" name="dateOfBirth" id="dateOfBirth"
                                                 placeholder="YYYY-MM-DD" />
                                         </label>
                                         <p className="error-msg" id="dateOfBirthError">error_here</p>
@@ -68,35 +70,38 @@ function Form(props) {
                                 </section>
                             </fieldset>
                         </section>
-                        <section className="tabbedSection cell large-8" id="guardianDetailsSection">
+                        <section className="cell large-8" id="guardianDetailsSection">
                             <fieldset>
                                 <legend>Guardian's Information</legend>
-                                <p className="error-msg" id="guardianRequiredError">error_here</p>
+                                <p className="error-msg">Please fill guardian details, you are under 16.</p>
                                 <section className="grid-x grid-padding-x">
-                                    <section className="cell large-6">
-                                        <label for="guardianFirstName">First Name
-                                            <input type="text" className="input-box" name="guardianFirstName" onChange={props.guardianFirstNameChange}
-                                                id="guardianFirstName" placeholder="Enter guardian's first name" />
+                                    <section className="cell large-2">
+                                        <label for="guardianSalutation">Prefix
+                                            <select name="guardianSalutation" id="guardianSalutation">
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Miss">Miss</option>
+                                            </select>
                                         </label>
-                                        <p className="error-msg" id="guardianFirstNameError">error_here</p>
+                                        <p className="error-msg" id="guardianSalutationError">error_here</p>
                                     </section>
-                                    <section className="cell large-6">
+                                    <section className="cell large-5">
                                         <label for="guardianLastName">Last Name
-                                            <input type="text" className="input-box" name="guardianLastName" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="guardianLastName"
                                                 id="guardianLastName" placeholder="Enter Guardian's Last name" />
                                         </label>
                                         <p className="error-msg" id="guardianLastNameError">error_here</p>
                                     </section>
-                                    <section className="cell large-8">
+                                    <section className="cell large-6">
                                         <label for="guardianEmailId">Email
-                                            <input type="text" className="input-box" name="guardianEmailId" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="guardianEmailId"
                                                 id="guardianEmailId" placeholder="Enter Guardian's email" />
                                         </label>
                                         <p className="error-msg" id="guardianEmailIdError">error_here</p>
                                     </section>
-                                    <section className="cell large-8">
+                                    <section className="cell large-6">
                                         <label for="guardianPhoneNum">Phone number
-                                            <input type="text" className="input-box" name="guardianPhoneNum" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="guardianPhoneNum"
                                                 id="guardianPhoneNum" placeholder="Enter guardian's phone number" />
                                         </label>
                                         <p className="error-msg" id="guardianPhoneNumError">error_here</p>
@@ -108,44 +113,44 @@ function Form(props) {
                             <fieldset>
                                 <legend>Contact Information</legend>
                                 <section className="grid-x grid-padding-x">
-                                    <section className="cell large-8">
+                                    <section className="cell large-6">
                                         <label for="emailId">Email
-                                            <input type="text" className="input-box" name="emailId" id="emailId" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="emailId" id="emailId"
                                                 placeholder="Enter email" />
                                         </label>
                                         <p className="error-msg" id="emailIdError">error_here</p>
                                     </section>
-                                    <section className="cell large-8">
+                                    <section className="cell large-6">
                                         <label for="phoneNum">Phone number
-                                            <input type="text" className="input-box" name="phoneNum" id="phoneNum" onChange={props.handleChange}
-                                                placeholder="Enter guardian's phone number" />
+                                            <input type="text" className="input-box" name="phoneNum" id="phoneNum"
+                                                placeholder="Enter phone number" />
                                         </label>
                                         <p className="error-msg" id="phoneNumError">error_here</p>
                                     </section>
                                     <section className="cell large-8">
                                         <label for="homeAddress1">Address Line 1
-                                            <input type="text" className="input-box" name="homeAddress1" id="homeAddress" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="homeAddress1" id="homeAddress"
                                                 placeholder="Enter address line 1" />
                                         </label>
                                         <p className="error-msg" id="homeAddressError">error_here</p>
                                     </section>
                                     <section className="cell large-8">
                                         <label for="homeAddress2">Address Line 2
-                                            <input type="text" className="input-box" name="homeAddress2" id="homeAddress2" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="homeAddress2" id="homeAddress2"
                                                 placeholder="Enter address line 2" />
                                         </label>
-                                        <p className="error-msg" id="">error_here</p>
+                                        <p className="error-msg">&nbsp;</p>
                                     </section>
                                     <section className="cell large-5">
                                         <label for="city">City
-                                            <input type="text" className="input-box" name="city" id="city" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="city" id="city"
                                                 placeholder="Enter city name" />
                                         </label>
                                         <p className="error-msg" id="cityError">error_here</p>
                                     </section>
                                     <section className="cell large-5">
                                         <label for="postalCode">ZIP / Postal Code
-                                            <input type="text" className="input-box" name="postalCode" id="postalCode" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="postalCode" id="postalCode"
                                                 placeholder="Enter city name" />
                                         </label>
                                         <p className="error-msg" id="postalCodeError">error_here</p>
@@ -161,7 +166,7 @@ function Form(props) {
                                                 <option value="Northwest Territories">NT</option>
                                                 <option value="Nova Scotia">NS</option>
                                                 <option value="Nonavut">NU</option>
-                                                <option value="Ontario" selected>ON</option>
+                                                <option value="Ontario">ON</option>
                                                 <option value="Prince Edward Island">PE</option>
                                                 <option value="Quebec">QC</option>
                                                 <option value="Saskatchewan">SK</option>
@@ -171,30 +176,23 @@ function Form(props) {
                                     </section>
                                     <section className="cell large-5">
                                         <label for="country">Country
-                                            <input type="text" className="input-box" name="country" id="country" onChange={props.handleChange}
-                                                disabled="disabled" value="Canada" />
+                                            <input type="text" className="input-box" name="country" id="country" disabled="disabled" value="Canada"/>
                                         </label>
                                         <p className="error-msg" id="postalCodeError">error_here</p>
                                     </section>
                                 </section>
-                                <input type="checkbox" id="termsAndConditions" name="termsAndConditions"
-                                    required /><label for="termsAndConditions"> I accept <a
-                                        href="term-condition.html">rules and regulations</a></label><br/>
-                                <input type="checkbox" id="newsletterSignup" name="termsAndConditions" required /><label
-                                    for="termsAndConditions"> Sign me up to receive emails! (optional)</label>
+                                <input type="checkbox" id="termsAndConditions" name="termsAndConditions" required/><label for="termsAndConditions"> I accept <a href="term-condition.html">terms and condition</a> for the contest.</label><br/>
+                                <input type="checkbox" id="newsletterSignup" name="termsAndConditions" required/><label for="termsAndConditions"> Sign me up to receive emails! (optional)</label>
                                 <p className="error-msg" id="termsAndConditionsError">error_here</p>
                             </fieldset>
                         </section>
                         <section className="cell large-8">
-                            <section className=" grid-x grid-padding-x">
-                                <section className="cell large-2 small-12">
-                                    {/* <section className="button" id="formSubmit">Submit</section> */}
-                                    <input className="button" type="submit" value="Submit" />
-                                </section>
-                                <section className="cell large-2 small-12">
-                                    <section className="button secondary" id="formCancel">Cancel</section>
-                                </section>
+                        <section className="grid-x grid-padding-x">
+                            <section className="cell large-12 small-12">
+                                <div className="button" id="formSubmit">Submit</div>
+                                <div className="button secondary" id="formCancel">Cancel</div>
                             </section>
+                        </section>
                         </section>
                     </form>
                 </section>
@@ -204,4 +202,4 @@ function Form(props) {
     );
 }
 
-export default withRouter(Form);
+export default Form;
