@@ -4,11 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'foundation-sites/dist/css/foundation.min.css';
-import { Button, Colors } from 'react-foundation';
-
-function SubmitButton() {
-  return <Button color={Colors.SUCCESS}>Submit</Button>;
-}
 
 ReactDOM.render(
   <React.StrictMode>

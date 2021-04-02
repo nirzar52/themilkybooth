@@ -20,11 +20,12 @@ import Thanks from "./components/Thanks";
 
 function App() {
 
-    const [namer, setNamer] = useState("");
+    const [firstName, lastName, setFirstName, setLastName] = useState("");
 
     const handleChange = (e) => {
         console.log(e.target.value);
-        setNamer(e.target.value);
+        setFirstName(e.target.value);
+        setLastName(e.target.value);
     };
 
     return (
@@ -43,7 +44,7 @@ function App() {
 
                     <Switch>
                         <Route exact path="/" children={ <Form handleChange={(e) => handleChange(e)} /> } />
-                        <Route path="/thanks" children={<Thanks namer={namer} />} />
+                        <Route path="/thanks" children={<Thanks namer={firstName, lastName} />} />
                         <Route path="/terms" component={Terms} />
                         <Route path="/photobooth" component={Photobooth} />
                     </Switch>
