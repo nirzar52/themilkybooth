@@ -46,21 +46,21 @@ function Form(props) {
                                 <section className="grid-x grid-padding-x">
                                     <section className="cell large-6">
                                         <label for="firstName">First Name
-                                            <input type="text" className="input-box" name="firstName" id="firstName" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="firstName" id="firstName" onChange={props.firstNameChange} value={this.state.fr}
                                                 placeholder="Enter your First name" />
                                         </label>
                                         <p className="error-msg" id="firstNameError">error_here</p>
                                     </section>
                                     <section className="cell large-6">
                                         <label for="lastName">Last Name
-                                            <input type="text" className="input-box" name="lastName" id="lastName" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="lastName" id="lastName" onChange={props.lastNameChange}
                                                 placeholder="Enter your Last name" />
                                         </label>
                                         <p className="error-msg" id="lastNameError">error_here</p>
                                     </section>
                                     <section className="cell large-6">
                                         <label for="dateOfBirth">Date of Birth
-                                            <input type="date" className="input-box" name="dateOfBirth" id="dateOfBirth" onChange={props.handleChange}
+                                            <input type="date" className="input-box" name="dateOfBirth" id="dateOfBirth" onChange={props.firstNameChange}
                                                 placeholder="YYYY-MM-DD" />
                                         </label>
                                         <p className="error-msg" id="dateOfBirthError">error_here</p>
@@ -75,7 +75,7 @@ function Form(props) {
                                 <section className="grid-x grid-padding-x">
                                     <section className="cell large-6">
                                         <label for="guardianFirstName">First Name
-                                            <input type="text" className="input-box" name="guardianFirstName" onChange={props.handleChange}
+                                            <input type="text" className="input-box" name="guardianFirstName" onChange={props.guardianFirstNameChange}
                                                 id="guardianFirstName" placeholder="Enter guardian's first name" />
                                         </label>
                                         <p className="error-msg" id="guardianFirstNameError">error_here</p>

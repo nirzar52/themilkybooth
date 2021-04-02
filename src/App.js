@@ -20,14 +20,66 @@ import Thanks from "./components/Thanks";
 
 function App() {
 
-    const [firstName, lastName, setFirstName, setLastName] = useState("");
+    const [setState] = useState("");
 
-    const handleChange = (e) => {
-        console.log(e.target.value);
-        setFirstName(e.target.value);
-        setLastName(e.target.value);
+    const firstNameChange = (e) => {
+        this.setState({ firstName: e.target.value });
     };
 
+    const lastNameChange = (e) => {
+        this.setState({ lastName: e.target.value });
+    };
+    
+    const dateOfBirthChange = (e) => {
+        this.setState({ dateOfBirth: e.target.value });
+    };
+    
+    const emailIdChange = (e) => {
+        this.setState({ emailId: e.target.value });
+    };
+    
+    const phoneNumChange = (e) => {
+        this.setState({ phoneNum: e.target.value });
+    };
+    
+    const homeAddressChange = (e) => {
+        this.setState({ homeAddress: e.target.value });
+    };
+    
+    const cityChange = (e) => {
+        this.setState({ homeAddress: e.target.value });
+    };
+    
+    const postalCodeChange = (e) => {
+        this.setState({ postalCode: e.target.value });
+    };
+    
+    const termsAndConditionsChange = (e) => {
+        this.setState({ termsAndConditions: e.target.value });
+    };
+    
+    const guardianFirstNameChange = (e) => {
+        this.setState({ guardianFirstName: e.target.value });
+    };
+    
+    const guardianLastNameChange = (e) => {
+        this.setState({ guardianLastName: e.target.value });
+    };
+    
+    const guardianEmailIdChange = (e) => {
+        this.setState({ guardianEmailId: e.target.value });
+    };
+    
+    const guardianPhoneNumChange = (e) => {
+        this.setState({ guardianPhoneNum: e.target.value });
+    };
+
+    function handleLogin() {
+        console.log("First: " + this.state.firstName);
+        console.log("Last: " + this.state.lastName);
+    }
+    
+    
     return (
         <>
             <Header />
