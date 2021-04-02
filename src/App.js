@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import './App.css';
 
 import { Grid, Cell } from "react-foundation";
 import "foundation-sites/dist/css/foundation.min.css";
+
+import './App.css';
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
