@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Input from './Input';
+import axios from './axios-orders';
 
 class Form extends Component {
 	state = {
@@ -14,7 +15,8 @@ class Form extends Component {
 						{ value: 'Miss', displayValue: 'Miss' },
 					]
 				},
-				value: ''
+				value: 'Mr',
+				validation: {},
 			},
 			firstName: {
 				elementType: 'input',
@@ -22,7 +24,13 @@ class Form extends Component {
 					type: 'text',
 					placeholder: 'Enter your First name'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true,
+					validationText: "Please enter a valid first name"
+				},
+				valid: false,
+				touched: false,
 			},
 			lastName: {
 				elementType: 'input',
@@ -30,7 +38,13 @@ class Form extends Component {
 					type: 'text',
 					placeholder: 'Enter your Last name'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true,
+					validationText: "Please enter a valid last name"
+				},
+				valid: false,
+				touched: false,
 			},
 			dateOfBirth: {
 				elementType: 'input',
@@ -38,7 +52,13 @@ class Form extends Component {
 					type: 'date',
 					placeholder: 'YYYY-MM-DD'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true,
+					validationText: "Please enter a valid age"
+				},
+				valid: false,
+				touched: false,
 			},
 			emailId: {
 				elementType: 'input',
@@ -46,7 +66,13 @@ class Form extends Component {
 					type: 'email',
 					placeholder: 'Enter email'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true,
+					validationText: "Please enter a valid email id"
+				},
+				valid: false,
+				touched: false,
 			},
 			phoneNum: {
 				elementType: 'input',
@@ -54,7 +80,13 @@ class Form extends Component {
 					type: 'text',
 					placeholder: 'Enter phone number'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true,
+					validationText: "Please enter a valid phone number",
+				},
+				valid: false,
+				touched: false,
 			},
 			homeAddress1: {
 				elementType: 'input',
@@ -62,7 +94,11 @@ class Form extends Component {
 					type: 'text',
 					placeholder: 'Enter address line 1'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true,
+				},
+				touched: false
 			},
 			homeAddress2: {
 				elementType: 'input',
@@ -78,7 +114,11 @@ class Form extends Component {
 					type: 'text',
 					placeholder: 'Enter city name'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true
+				},
+				touched: false
 			},
 			postalCode: {
 				elementType: 'input',
@@ -86,7 +126,13 @@ class Form extends Component {
 					type: 'text',
 					placeholder: 'Enter ZIP/Postal code'
 				},
-				value: ''
+				value: '',
+				validation: {
+					required: true,
+					validationText: "Please enter a valid postal code",
+				},
+				valid: false,
+				touched: false
 			},
 			province: {
 				elementType: 'select',
@@ -107,6 +153,8 @@ class Form extends Component {
 						{ value: 'Yukon', displayValue: 'YT' },
 					]
 				},
+				value: 'Alberta',
+				validation: {},
 			},
 			country: {
 				elementType: 'input',
@@ -123,34 +171,88 @@ class Form extends Component {
 				elementConfig: {
 					type: 'checkbox',
 				},
+				validation: {
+					required: true,
+					validationText: "Please check our rules and regulations",
+				},
+				touched: false
 			},
 			newsletterSignup: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'checkbox',
-				},
+				}
 			},
-
-
-			country: 'Germany',
-			email: 'test@test.com',
-			deliveryMethod: 'fastest'
-		}
+		},
+		formIsValid: false
 	}
 
-	orderHandler = ( event ) => {
-        event.preventDefault();
-        this.setState( { loading: true } );
-        const formData = {};
-        for (let formElementIdentifier in this.state.orderForm) {
-            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
-        }
-        const order = {
-            ingredients: this.props.ingredients,
-            price: this.props.price,
-            orderData: formData
-        }
-    }
+
+	orderHandler = (e) => {
+		e.preventDefault();
+		this.setState({ loading: true });
+		const formData = {};
+		for (let formElementIdentifier in this.state.orderForm) {
+			formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+		}
+		const requestData = {
+			orderData: formData
+		}
+		axios.post('/form.json', requestData)
+			.then(response => {
+				this.props.history.push('/');
+			})
+			.catch((err) => { console.log(err); });
+	}
+
+	checkValidity(value, rules) {
+
+		let isValid = true;
+		if (!rules) {
+			return true;
+		}
+
+		if (firstName && lastName) {
+			const pattern = /^[A-Z]+|[a-z]+$/;
+			isValid = pattern.test(value) && isValid
+		}
+
+		if (emailId) {
+			const pattern = /^[a-zA-Z0-9]{2,}[._-]?[a-zA-Z0-9]+[@]{1}[a-zA-Z]{2,}[-]?[a-zA-Z]+[.]{1}[a-zA-Z]{2,}$/;
+			isValid = pattern.test(value) && isValid;
+		}
+
+		if (emailId) {
+			const pattern = /^[a-zA-Z0-9]{2,}[._-]?[a-zA-Z0-9]+[@]{1}[a-zA-Z]{2,}[-]?[a-zA-Z]+[.]{1}[a-zA-Z]{2,}$/;
+			isValid = pattern.test(value) && isValid;
+		}
+
+		if (phoneNum) {
+			const pattern = /^[(]?[0-9]{3}[)]?[-. ]?[0-9]{3}[-. ]?[0-9]{4}$/;
+			isValid = pattern.test(value) && isValid;
+		}
+
+		return isValid;
+	}
+
+	inputChangedHandler = (event, inputIdentifier) => {
+		const updatedOrderForm = {
+			...this.state.orderForm
+		};
+		const updatedFormElement = {
+			...updatedOrderForm[inputIdentifier]
+		};
+		updatedFormElement.value = event.target.value;
+		updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+		updatedFormElement.touched = true;
+		updatedOrderForm[inputIdentifier] = updatedFormElement;
+
+		let formIsValid = true;
+		for (let inputIdentifier in updatedOrderForm) {
+			formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+		}
+		this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
+	}
 
 	render() {
 		const formElementsArray = [];
@@ -158,20 +260,24 @@ class Form extends Component {
 			formElementsArray.push({
 				id: key,
 				config: this.state.orderForm[key]
-			})
+			});
 		}
 
 		let form = (
-			<form>
+			<form onSubmit={this.orderHandler}>
 				{formElementsArray.map(formElement => (
 					<Input
 						key={formElement.id}
 						elementType={formElement.config.elementType}
 						elementConfig={formElement.config.elementConfig}
 						value={formElement.config.value}
-					/>
+						invalid={!formElement.config.valid}
+						shouldValidate={formElement.config.validation}
+						touched={formElement.config.touched}
+						changed={(event) => this.inputChangedHandler(event, formElement.id)} />
 				))}
-				<button className="button" id="formSubmit" clicked={this.orderHandler}>ORDER</button>
+				<button className="button Button" id="formSubmit" disabled={!this.state.formIsValid}>Submit</button>
+
 			</form>
 		);
 

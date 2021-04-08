@@ -1,35 +1,65 @@
-import { React } from "react";
+import React from 'react';
 
+import classes from '../App.css';
 
-export const Input = (props) => {
-
+const Input = (props) => {
     let inputElement = null;
+    const inputClasses = [classes.inputBox];
+
+    if (props.invalid && props.shouldValidate && props.touched) {
+        inputClasses.push(classes.errorInput);
+    }
 
     switch (props.elementType) {
         case ('input'):
-            inputElement = <input className="input-box" {...props.elementConfig} value={props.value} required />;
+            inputElement = <input
+                className={inputClasses.join(' ')}
+                {...props.elementConfig}
+                value={props.value}
+                onChange={props.changed} />;
             break;
         case ('textarea'):
-            inputElement = <textarea className="input-box" {...props.elementConfig} value={props.value} required />;
+            inputElement = <textarea
+                className={inputClasses.join(' ')}
+                {...props.elementConfig}
+                value={props.value}
+                onChange={props.changed} />;
             break;
         case ('select'):
-            inputElement = (<select className="input-box" value={props.value} required>
-                {props.elementConfig.options.map(option => (
-                    <option key={option.value} value={option.value}>{option.displayValue}</option>
-                ))}
-            </select>);
+            inputElement = (
+                <select
+                    className={inputClasses.join(' ')}
+                    value={props.value}
+                    onChange={props.changed}>
+                    {props.elementConfig.options.map(option => (
+                        <option key={option.value} value={option.value}>
+                            {option.displayValue}
+                        </option>
+                    ))}
+                </select>
+            );
             break;
         default:
-            inputElement = <input className="input-box" {...props.elementConfig} value={props.value} required />;
+            inputElement = <input
+                className={inputClasses.join(' ')}
+                {...props.elementConfig}
+                value={props.value}
+                onChange={props.changed} />;
+    }
 
+    let validationError = null;
+    if (props.invalid && props.touched) {
+        validationError = <p className="ErrorMsg">{props.shouldValidate.validationText}</p>;
     }
 
     return (
-        <section className="cell large-4">
-            <label>{props.label}</label>
-            { inputElement}
-        </section>
-    )
-}
+        <div className={classes.Input}>
+            <label className={classes.Label}>{props.label}</label>
+            {inputElement}
+            {validationError}
+        </div>
+    );
+
+};
 
 export default Input;

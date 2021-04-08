@@ -4,13 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "foundation-sites/dist/css/foundation.min.css";
-import { DataProvider } from "./components/DataContext";
 
 ReactDOM.render(
     <React.StrictMode>
-        <DataProvider>
             <App />
-        </DataProvider>
     </React.StrictMode>,
     document.getElementById("root")
 );
