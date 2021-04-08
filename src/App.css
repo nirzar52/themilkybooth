@@ -438,7 +438,7 @@ label {
   color: #ff0606;
   font-size: small;
   padding: 0;
-  
+
 }
 
 legend {
@@ -656,7 +656,32 @@ img#photo {
   background-color: rgb(236, 156, 156);
 }
 
+.Button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.Button:first-of-type {
+  margin-left: 0;
+  padding-left: 0;
+}
+
 .Button:disabled {
-  background-color: #a0a0a0;
+  color: #ccc;
   cursor: not-allowed;
+}
+
+.Success {
+  color: #5C9210;
+}
+
+.Danger {
+  color: #944317;
 }
