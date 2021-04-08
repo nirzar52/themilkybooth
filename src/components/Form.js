@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Input from './Input';
 import axios from './axios-orders';
+import Button from './Button';
 
 class Form extends Component {
 	state = {
@@ -44,7 +45,7 @@ class Form extends Component {
 					validationText: "Please enter a valid last name"
 				},
 				valid: false,
-				touched: false,
+				touched: false
 			},
 			dateOfBirth: {
 				elementType: 'input',
@@ -58,7 +59,7 @@ class Form extends Component {
 					validationText: "Please enter a valid age"
 				},
 				valid: false,
-				touched: false,
+				touched: false
 			},
 			emailId: {
 				elementType: 'input',
@@ -72,7 +73,7 @@ class Form extends Component {
 					validationText: "Please enter a valid email id"
 				},
 				valid: false,
-				touched: false,
+				touched: false
 			},
 			phoneNum: {
 				elementType: 'input',
@@ -86,7 +87,7 @@ class Form extends Component {
 					validationText: "Please enter a valid phone number",
 				},
 				valid: false,
-				touched: false,
+				touched: false
 			},
 			homeAddress1: {
 				elementType: 'input',
@@ -171,11 +172,11 @@ class Form extends Component {
 				elementConfig: {
 					type: 'checkbox',
 				},
-				validation: {
-					required: true,
-					validationText: "Please check our rules and regulations",
-				},
-				touched: false
+				// validation: {
+				// 	required: true,
+				// 	validationText: "Please check our rules and regulations",
+				// },
+				// touched: false
 			},
 			newsletterSignup: {
 				elementType: 'input',
@@ -212,25 +213,50 @@ class Form extends Component {
 			return true;
 		}
 
-		if (firstName && lastName) {
-			const pattern = /^[A-Z]+|[a-z]+$/;
+		if (rules.required) {
+			isValid = value.trim() !== '' && isValid;
+		}
+
+		if (rules.minLength) {
+			isValid = value.length >= rules.minLength && isValid
+		}
+
+		if (rules.maxLength) {
+			isValid = value.length <= rules.maxLength && isValid
+		}
+
+		if (rules.isEmail) {
+			const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 			isValid = pattern.test(value) && isValid
 		}
 
-		if (emailId) {
-			const pattern = /^[a-zA-Z0-9]{2,}[._-]?[a-zA-Z0-9]+[@]{1}[a-zA-Z]{2,}[-]?[a-zA-Z]+[.]{1}[a-zA-Z]{2,}$/;
-			isValid = pattern.test(value) && isValid;
+		if (rules.isNumeric) {
+			const pattern = /^\d+$/;
+			isValid = pattern.test(value) && isValid
 		}
 
-		if (emailId) {
-			const pattern = /^[a-zA-Z0-9]{2,}[._-]?[a-zA-Z0-9]+[@]{1}[a-zA-Z]{2,}[-]?[a-zA-Z]+[.]{1}[a-zA-Z]{2,}$/;
-			isValid = pattern.test(value) && isValid;
-		}
+		// 	if (firstName && lastName) {
+		// 		const pattern = /^[A-Z]+|[a-z]+$/;
+		// 		isValid = pattern.test(value) && isValid
+		// 	}
 
-		if (phoneNum) {
-			const pattern = /^[(]?[0-9]{3}[)]?[-. ]?[0-9]{3}[-. ]?[0-9]{4}$/;
-			isValid = pattern.test(value) && isValid;
-		}
+		// 	if (emailId) {
+		// 		const pattern = /^[a-zA-Z0-9]{2,}[._-]?[a-zA-Z0-9]+[@]{1}[a-zA-Z]{2,}[-]?[a-zA-Z]+[.]{1}[a-zA-Z]{2,}$/;
+		// 		isValid = pattern.test(value) && isValid;
+		// 	}
+
+		// 	if (emailId) {
+		// 		const pattern = /^[a-zA-Z0-9]{2,}[._-]?[a-zA-Z0-9]+[@]{1}[a-zA-Z]{2,}[-]?[a-zA-Z]+[.]{1}[a-zA-Z]{2,}$/;
+		// 		isValid = pattern.test(value) && isValid;
+		// 	}
+
+		// 	if (phoneNum) {
+		// 		const pattern = /^[(]?[0-9]{3}[)]?[-. ]?[0-9]{3}[-. ]?[0-9]{4}$/;
+		// 		isValid = pattern.test(value) && isValid;
+		// 	}
+
+		// 	return isValid;
+		// }
 
 		return isValid;
 	}
@@ -276,7 +302,7 @@ class Form extends Component {
 						touched={formElement.config.touched}
 						changed={(event) => this.inputChangedHandler(event, formElement.id)} />
 				))}
-				<button className="button Button" id="formSubmit" disabled={!this.state.formIsValid}>Submit</button>
+                <Button btnType="Success" disabled={!this.state.formIsValid}>SUBMIT</Button>
 
 			</form>
 		);
