@@ -1,12 +1,18 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
-import moment from "moment";
+import { addDays } from 'date-fns';
+import { useHistory } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function App() {
+export const Form = (children, ...props) => {
 	const { register, handleSubmit } = useForm();
-	const onSubmit = (data) => console.log(data);
+	const history = useHistory();
+
+	const onSubmit = (data) => { 
+		console.log(data)
+		history.push("/thanks");
+	};
 
 	const [startDate, setStartDate] = useState();
 
@@ -24,19 +30,25 @@ export default function App() {
 				/>
 			</label>
 
-			<label htmlFor="dateOfBirth">Date of Birth
-				<DatePicker
+			<label htmlFor="dateOfBirth">Date of Birth</label>
+				<DatePicker name="dateOfBirth"
 					selected={startDate}
 					onChange={date => setStartDate(date)}
-					minDate={new Date("04-01-2021")}
-					maxDate={new Date("04-29-2021")}
-					dateFormat="MM/dd/yyyy"
-					placeholderText="MM/DD/YYYY"
+					maxDate={addDays(new Date(), -5844)}
+					dateFormat="yyyy/MM/dd"
+					placeholderText="YYYY/MM/DD"
+					isClearable
+					showYearDropdown
+					showMonthDropdown
+					scrollableMonthYearDropdown
+					dropdownMode="select"
 				/>
-			</label>
 
-			<input type="number" {...register("age", { min: 18, max: 99 })} />
+
+
 			<input type="submit" />
 		</form>
 	);
 }
+
+export default Form;

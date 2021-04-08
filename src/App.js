@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import Form from "./components/Form";
 import Terms from "./components/Terms";
 import Photobooth from "./components/Photobooth";
+import Thanks from "./components/Thanks";
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
                         <Route path="/form" component={Form} />
                         <Route path="/terms" component={Terms} />
                         <Route path="/photobooth" component={Photobooth} />
+                        <Route path="/thanks" component={Thanks} />
                     </Switch>
                 </div>
             </Router>
