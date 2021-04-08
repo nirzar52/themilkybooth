@@ -365,7 +365,27 @@ form {
   justify-content: center;
 }
 
-.input-box, select {
+select {
+  margin-bottom: 0px;
+  height: 38px;
+  border: 1px solid #879294;
+  box-shadow: none;
+  font-size: 14px;
+  margin-top: 2px;
+  color: #333;
+}
+
+.input-box {
+  margin-bottom: 0px;
+  height: 38px;
+  border: 1px solid #879294;
+  box-shadow: none;
+  margin-top: 2px;
+  font-size: 14px;
+  color: #333;
+}
+
+.inputBox {
   margin-bottom: 0px;
   height: 38px;
   border: 1px solid #879294;
@@ -412,6 +432,13 @@ label {
   font-size: 14px;
   min-height: 22px;
   margin-bottom: 5px;
+}
+
+.ErrorMsg {
+  color: #ff0606;
+  font-size: small;
+  padding: 0;
+  
 }
 
 legend {
@@ -623,3 +650,13 @@ canvas {
 img#photo {
   display: none;
 } */
+
+.errorInput {
+  border: 1px solid red;
+  background-color: rgb(236, 156, 156);
+}
+
+.Button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}

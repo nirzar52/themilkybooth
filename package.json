@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
     "foundation-sites": "^6.6.3",
     "libphonenumber-js": "^1.9.16",
     "moment": "^2.29.1",
