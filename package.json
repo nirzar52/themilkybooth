@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "foundation-sites": "^6.6.3",
+    "libphonenumber-js": "^1.9.16",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-datepicker": "^3.7.0",
@@ -17,9 +18,8 @@
     "react-moment-datepicker": "0.0.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "reactjs-popup": "^2.0.4",
-    "validate.js": "^0.13.1",
-    "web-vitals": "^1.1.1"
+    "web-vitals": "^1.1.1",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
