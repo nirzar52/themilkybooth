@@ -1,51 +1,42 @@
+import { React, useState } from "react";
 import { useForm } from "react-hook-form";
+import DatePicker from "react-datepicker";
+import moment from "moment";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function App() {
-  const { register, handleSubmit, errors, reset, formState } = useForm();
-  const { isDirty, isSubmitting } = formState;
+	const { register, handleSubmit } = useForm();
+	const onSubmit = (data) => console.log(data);
 
-  const onSubmit = (data) => alert(JSON.stringify(data, null, 2));
+	const [startDate, setStartDate] = useState();
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h1> Your Data</h1>
-      <div>
-        <label>Name</label>
-        <input
-          type="text"
-          placeholder="Full Name"
-          name="name"
-          ref={register({ required: "Name Required " })}
-        />
-        <span>{errors.name?.message}</span>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          placeholder="Email"
-          name="email"
-          ref={register({
-            required: "Email Required",
-            pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" },
-          })}
-        />
-        <span>{errors.email?.message}</span>
-      </div>
-      <div>
-        <label>Accept Terms</label>
-        <input
-          type="checkbox"
-          placeholder="Accept Terms"
-          name="acceptedTerms"
-          ref={register({ required: true })}
-        />
-        {errors.acceptedTerms && <span>You must accepet the terms</span>}
-      </div>
+	return (
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<label htmlFor="firstName">First Name
+				<input type="text" name="firstName" className="input-box" id="firstName" placeholder="Enter your First name"
+					{...register("firstName", { required: true, pattern: /^[A-Z]+|[a-z]+$/, })}
+				/>
+			</label>
 
-      <input type="submit" onClick={reset} disabled={!isDirty || isSubmitting}>
-        Reset
-      <input type="submit" disabled={isSubmitting} />
-    </form>
-  );
+			<label htmlFor="lastName">Last Name
+				<input type="text" name="lastName" className="input-box" id="lastName" placeholder="Enter your Last name"
+					{...register("lastName", { required: true, pattern: /^[A-Z]+|[a-z]+$/, })}
+				/>
+			</label>
+
+			<label htmlFor="dateOfBirth">Date of Birth
+				<DatePicker
+					selected={startDate}
+					onChange={date => setStartDate(date)}
+					minDate={new Date("04-01-2021")}
+					maxDate={new Date("04-29-2021")}
+					dateFormat="MM/dd/yyyy"
+					placeholderText="MM/DD/YYYY"
+				/>
+			</label>
+
+			<input type="number" {...register("age", { min: 18, max: 99 })} />
+			<input type="submit" />
+		</form>
+	);
 }
