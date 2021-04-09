@@ -637,14 +637,6 @@ legend {
 
 /* BOOTH PAGE */
 
-.frame {
-    border: 2px solid black;
-    background-image: url(https://www.onlygfx.com/wp-content/uploads/2017/10/square-grunge-frame-2-6-1024x1024.png);
-    background-size: cover;
-    padding: 20px 0;
-    background-position: center;
-}
-
 #target {
     display: none;
 }
@@ -707,6 +699,11 @@ img#photo {
     justify-content: center;
 }
 
+.frame {
+    margin: 3em;
+    border: 2.5em solid #0392b4;
+}
+
 .cam,
 .preview {
     position: relative;
@@ -717,12 +714,7 @@ img#photo {
 }
 
 .capture-btn {
-    position: absolute;
-    bottom: 9px;
-    display: block;
-    left: 50%;
-    transform: translateX(-50%);
-    background: none;
+    text-align: center;
     color: #fff;
     border: none;
     font-size: 40px;
@@ -750,4 +742,10 @@ img#photo {
 
 .download-btn {
     margin-left: 25px;
+}
+
+
+.buttons-container {
+    background-color: black;
+    padding: 1em 0;
 }
