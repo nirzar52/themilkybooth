@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { Grid, Cell } from "react-foundation";
@@ -8,12 +8,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
-import Home from "./components/Home";
 import NameForm from "./components/NameForm";
-import Terms from "./components/Terms";
-import Photobooth from "./components/Photobooth";
-import Thanks from "./components/Thanks";
+
+import Home from "./routes/Home";
+import Terms from "./routes/Terms";
+import Photobooth from "./routes/Photobooth";
+import Thanks from "./routes/Thanks";
 
 import './App.css';
 

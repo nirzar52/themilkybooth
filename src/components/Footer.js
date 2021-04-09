@@ -6,20 +6,22 @@ function Footer(props) {
         props.history.push("/terms");
     }
     return (
-        <footer className="footer">
-            <section className="grid-container">
-                <section className="grid-x grid-padding-x">
-                    <section className="cell large-6 small-12 text-left">
-                        <p>&copy; All rights reserved - 2021</p>
-                    </section>
-                    <section className="cell large-6 small-12 text-right">
-                        <a className="footer-links" onClick={goToTerms}>
-                            Terms and Conditions
-                        </a>
+        <div className="Footer">
+            <footer className="footer">
+                <section className="grid-container">
+                    <section className="grid-x grid-padding-x">
+                        <section className="cell large-6 small-12 text-left">
+                            <p>&copy; All rights reserved - 2021</p>
+                        </section>
+                        <section className="cell large-6 small-12 text-right">
+                            <a className="footer-links" onClick={goToTerms}>
+                                Terms and Conditions
+                            </a>
+                        </section>
                     </section>
                 </section>
-            </section>
-        </footer>
+            </footer>
+        </div>
     );
 }
 

@@ -13,7 +13,7 @@
     "classnames": "^2.3.1",
     "fabric": "^4.4.0",
     "fabric-customise-controls": "^2.0.6-beta",
-    "firebase-admin": "^5.12.1",
+    "firebase-admin": "^9.6.0",
     "firebase-functions": "^3.13.2",
     "foundation-sites": "^6.6.3",
     "html-to-image": "^1.6.0",

@@ -1,8 +1,8 @@
 import React from "react";
-import Slider from "../views/Slider";
-import About from "../views/About";
-import Startcontest from "../views/Startcontest";
-import Howitworks from "../views/Howitworks";
+import Slider from "../components/Slider";
+import About from "../components/About";
+import Startcontest from "../components/Startcontest";
+import Howitworks from "../components/Howitworks";
 function Home() {
     return (
         <div className="Home">

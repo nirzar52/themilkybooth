@@ -1,6 +1,6 @@
 import React from 'react'
-import Termstitle from '../views/Termstitle';
-import Conditions from '../views/Conditions';
+import Termstitle from '../components/Termstitle';
+import Conditions from '../components/Conditions';
 
 function Terms() {
     return (
