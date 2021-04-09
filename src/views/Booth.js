@@ -1,5 +1,6 @@
 import React from "react";
 import Webcam from "react-webcam";
+import photoFrame from "../images/booth.png";
 
 export default function Booth() {
         const videoConstraints = {
@@ -20,7 +21,7 @@ export default function Booth() {
             <section className="grid-container text-center">
                 <section className=" grid-x grid-padding-x">
                     <section className="cell large-12 small-12">
-                        <img src="images/booth.png" alt="photobooth frame" />
+                        <img src={photoFrame} alt="photobooth frame" />
                         <Webcam
                             audio={false}
                             ref={webcamRef}

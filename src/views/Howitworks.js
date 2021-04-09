@@ -1,4 +1,9 @@
 import React from "react";
+import homePhotoFrame from "../images/framePic.png";
+import homeStep1 from "../images/step1.png";
+import homeStep2 from "../images/step2.png";
+import homeStep3 from "../images/step3.png";
+import homeStep4 from "../images/step4.png";
 
 export default function Howitworks() {
     return(
@@ -9,7 +14,7 @@ export default function Howitworks() {
                         <section className="cell large-5 small-12 left-work">
                             <div className="framePic">
                                 <div>
-                                <img src="images/framePic.png" alt="frame" className="outer" />
+                                <img src={homePhotoFrame} alt="frame" className="outer" />
                                 </div>
                             </div>
                             <div className="picText">
@@ -29,7 +34,7 @@ export default function Howitworks() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step1.png" alt="Step1" className="step" />
+                                                <img src={homeStep1} alt="Step1" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -47,7 +52,7 @@ export default function Howitworks() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step2.png" alt="Step2" className="step" />
+                                                <img src={homeStep2} alt="Step2" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -65,7 +70,7 @@ export default function Howitworks() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step3.png" alt="Step3" className="step" />
+                                                <img src={homeStep3} alt="Step3" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -83,7 +88,7 @@ export default function Howitworks() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step4.png" alt="Step4" className="step" />
+                                                <img src={homeStep4} alt="Step4" className="step" />
                                             </div>
                                         </section>
                                     </section>

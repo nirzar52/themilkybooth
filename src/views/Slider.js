@@ -1,13 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
+import Slider from "react-slick";
+import sliderImg1 from "../images/slider1.png";
+import sliderImg2 from "../images/slider2.jpg";
+import sliderImg3 from "../images/slider3.jpg";
+import sliderImg4 from "../images/slider4.png";
 
-export default function Slider() {
-    return(
-
+export default class SimpleSlider extends Component {
+    render() {
+        const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: !0,
+            cssEase: 'linear',
+            autoplay: true,
+            autoplaySpeed: 4500,
+            draggable: false,
+            arrows: false
+        };
+        return (
             <section className="main-banner hero-text">
-                <div className="hero" data-arrows="true" data-autoplay="true">
-                    
+                <Slider className="hero" {...settings}>
                     <div className="hero-slide">
-                        <img alt="Whole milk" className="img-responsive cover" src="images/slider1.png" />
+                        <img alt="Whole milk" className="img-responsive cover" src={sliderImg1} />
                         <div className="header-content  slide-content">
                             <h1 className="mb-4">Whole milk</h1>  
                             <p>At 3.25% milk fat, this velvety-smooth barista favorite tastes lighter than
@@ -16,7 +33,7 @@ export default function Slider() {
                     </div>
                     
                     <div className="hero-slide">
-                        <img alt="Salted butter" className="img-responsive cover" src="images/slider2.jpg" />
+                        <img alt="Salted butter" className="img-responsive cover" src={sliderImg2} />
                         <div className="header-content  slide-content">
                             <h1 className="mb-4">Salted butter</h1>  
                             <p>Also known as churned butter, this is the traditional butter, which is made by
@@ -25,7 +42,7 @@ export default function Slider() {
                     </div>
                     
                     <div className="hero-slide">
-                        <img alt="Stirred yogurt" className="img-responsive cover" src="images/slider3.jpg" />
+                        <img alt="Stirred yogurt" className="img-responsive cover" src={sliderImg3} />
                         <div className="header-content  slide-content">
                             <h1 className="mb-4"> Stirred yogurt</h1>  
                             <p>Perfect to enjoy on its own or stirred into smoothies and desserts, this
@@ -34,7 +51,7 @@ export default function Slider() {
                     </div>
 
                     <div className="hero-slide">
-                        <img alt="Fresh cheese" className="img-responsive cover" src="images/slider4.png" />
+                        <img alt="Fresh cheese" className="img-responsive cover" src={sliderImg4} />
                         <div className="header-content  slide-content">
                             <h1 className="mb-4"> Fresh cheese</h1>  
                             <p>Whether you’re referring to its fresh flavor or the way it’s made, this
@@ -42,7 +59,8 @@ export default function Slider() {
                                 palate-pleaser.</p>
                         </div>
                     </div>
-                </div>
+                </Slider>
             </section>
-        )
+        );
     }
+}
