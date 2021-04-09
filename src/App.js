@@ -1,6 +1,5 @@
-import React from "react";
+import { React, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 
 import { Grid, Cell } from "react-foundation";
 import "foundation-sites/dist/css/foundation.min.css";
@@ -11,12 +10,19 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Home from "./components/Home";
-import Form from "./components/Form";
+import NameForm from "./components/NameForm";
 import Terms from "./components/Terms";
 import Photobooth from "./components/Photobooth";
 import Thanks from "./components/Thanks";
 
 function App() {
+    const [namer, setNamer] = useState("");
+
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        setNamer(e.target.value);
+    };
+
     return (
         <>
             <Header />
@@ -32,8 +38,8 @@ function App() {
                     </div>
 
                     <Switch>
-                        <Route exact path="/"><Home/></Route>
-                        <Route path="/form" component={Form} />
+                        <Route exact path="/"><Home /></Route>
+                        <Route path="/form" children={<NameForm handleChange={(e) => handleChange(e)} />} />
                         <Route path="/terms" component={Terms} />
                         <Route path="/photobooth" component={Photobooth} />
                         <Route path="/thanks" component={Thanks} />
