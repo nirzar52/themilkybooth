@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Grid, Cell } from "react-foundation";
 import "foundation-sites/dist/css/foundation.min.css";
 
-import './App.css';
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -14,6 +12,8 @@ import NameForm from "./components/NameForm";
 import Terms from "./components/Terms";
 import Photobooth from "./components/Photobooth";
 import Thanks from "./components/Thanks";
+
+import './App.css';
 
 function App() {
     const [namer, setNamer] = useState("");

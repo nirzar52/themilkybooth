@@ -562,6 +562,10 @@ legend {
   font-size: 16px;
 }
 
+.accordion-content.is-active{
+  display: block;
+}
+
 .accordion-item.is-active .accordion-title:focus, .accordion-item.is-active .accordion-title:hover{
   color: #fff;
 }

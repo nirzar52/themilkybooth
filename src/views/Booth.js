@@ -20,7 +20,7 @@ export default function Booth() {
             <section className="grid-container text-center">
                 <section className=" grid-x grid-padding-x">
                     <section className="cell large-12 small-12">
-                        <img src="images/booth.png" />
+                        <img src="images/booth.png" alt="photobooth frame" />
                         <Webcam
                             audio={false}
                             ref={webcamRef}

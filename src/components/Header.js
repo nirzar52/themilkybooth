@@ -17,7 +17,7 @@ function Header() {
                         <section className="top-bar-right">
                             <ul className="social-menu">
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/" target="_blank">
                                         <img
                                             src="images/facebook.png"
                                             alt="facebook"
@@ -25,7 +25,7 @@ function Header() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/" target="_blank">
                                         <img
                                             src="images/instagram.png"
                                             alt="instagram"
@@ -33,7 +33,7 @@ function Header() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.youtube.com/" target="_blank">
                                         <img
                                             src="images/youtube.png"
                                             alt="youtube"
