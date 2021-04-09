@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { fabric } from 'fabric';
-import photoFrame from "../images/booth.png";
+import photoFrame from "../images/frameN.png";
 import Webcam from "react-webcam"
 
 
@@ -14,9 +14,13 @@ export default function Booth() {
         new fabric.Canvas('canvas', {
             height: 800,
             width: 800,
-            backgroundColor: videoConstraints
+            background: videoConstraints
         })
     )
+
+    const capture = () => {
+        const imageSrc = videoConstraints.getScreenshot();
+    }
 
     const videoConstraints = {
         width: 710,
@@ -39,7 +43,7 @@ export default function Booth() {
                             videoConstraints={videoConstraints}
                             mirrored={true}
                         />
-                        {/* <button onClick={capture}>Capture photo</button> */}
+                        <button onClick={capture}>Capture photo</button>
                     </section>
                     <div>
                     </div>
