@@ -559,6 +559,8 @@ legend {
 
 .accordion-title::before{
   font-size: 20px;
+  transform: translateY(-50%);
+  margin-top: 0;
 }
 
 .accordion-content {
