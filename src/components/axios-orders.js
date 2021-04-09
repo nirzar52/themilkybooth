@@ -5,3 +5,13 @@ const instance = axios.create({
 });
 
 export default instance;
+
+
+// const requestData = {
+//     orderData: formData
+// }
+// axios.post('/form.json', requestData)
+//     .then(response => {
+//         this.props.history.push('/');
+//     })
+//     .catch((err) => { console.log(err); });
