@@ -1,54 +1,135 @@
-import { React, useState, useEffect } from 'react';
-import { fabric } from 'fabric';
-import photoFrame from "../images/frameN.png";
-import Webcam from "react-webcam"
+import React, { Component } from 'react';
 
-
-export default function Booth() {
-    const [canvas, setCanvas] = useState('');
-    useEffect(() => {
-        setCanvas(initCanvas());
-    }, []);
-
-    const initCanvas = () => (
-        new fabric.Canvas('canvas', {
-            height: 800,
-            width: 800,
-            background: videoConstraints
-        })
-    )
-
-    const capture = () => {
-        const imageSrc = videoConstraints.getScreenshot();
+class Booth extends Component {
+    state = {
+        imageURL: '',
     }
 
-    const videoConstraints = {
-        width: 710,
-        height: 1200,
-        facingMode: "user"
-    };
+    videoEle = React.createRef();
+    canvasEle = React.createRef();
+    imageEle = React.createRef();
 
-    return (
-        <section className="about">
-            <section className="grid-container text-center">
-                <section className=" grid-x grid-padding-x">
-                    <section className="cell large-12 small-12">
-                        <img src={photoFrame} alt="photobooth frame" />
-                        <canvas id="canvas" />
-                        <Webcam
-                            audio={false}
-                            height={720}
-                            screenshotFormat="image/jpeg"
-                            width={1280}
-                            videoConstraints={videoConstraints}
-                            mirrored={true}
-                        />
-                        <button onClick={capture}>Capture photo</button>
-                    </section>
-                    <div>
-                    </div>
-                </section>
-            </section>
-        </section>
-    )
+    componentDidMount = async () => {
+        this.startCamera();
+    }
+
+    startCamera = async () => {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: true
+            });
+
+            this.videoEle.current.srcObject = stream;
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+    takeSelfie = async () => {
+        // Get the exact size of the video element.
+        const width = this.videoEle.current.videoWidth;
+        const height = this.videoEle.current.videoHeight;
+
+        // get the context object of hidden canvas
+        const ctx = this.canvasEle.current.getContext('2d');
+
+        // Set the canvas to the same dimensions as the video.
+        this.canvasEle.current.width = width;
+        this.canvasEle.current.height = height;
+
+        // Draw the current frame from the video on the canvas.
+        ctx.drawImage(this.videoEle.current, 0, 0, width, height);
+
+        // Get an image dataURL from the canvas.
+        const imageDataURL = this.canvasEle.current.toDataURL('image/png');
+        this.stopCam();
+
+        this.setState({
+            imageURL: imageDataURL
+        })
+    }
+
+    putFilter = async () => {
+        // Get the exact size of the video element.
+        const width = this.videoEle.current.videoWidth;
+        const height = this.videoEle.current.videoHeight;
+
+        // get the context object of hidden canvas
+        const ctx = this.canvasEle.current.getContext('2d');
+
+        // Set the canvas to the same dimensions as the video.
+        this.canvasEle.current.width = width;
+        this.canvasEle.current.height = height;
+
+        // Draw the current frame from the video on the canvas.
+        ctx.drawImage(this.videoEle.current, 0, 0, width, height);
+
+        // Get an image dataURL from the canvas.
+        const imageDataURL = this.canvasEle.current.toDataURL('image/png');
+        this.stopCam();
+
+        this.setState({
+            imageURL: imageDataURL
+        })
+    }
+
+    stopCam = () => {
+        const stream = this.videoEle.current.srcObject;
+        const tracks = stream.getTracks();
+
+        tracks.forEach(track => {
+            track.stop();
+        });
+    }
+
+    backToCam = () => {
+        this.setState({
+            imageURL: ''
+        }, () => {
+            this.startCamera();
+        })
+    }
+
+
+
+    render() {
+        return (<div className="selfie">
+            {this.state.imageURL === '' && <div className="cam">
+                <video width="100%" height="100%" className="video-player" autoPlay={true} ref={this.videoEle}></video>
+                <button className="btn capture-btn" onClick={this.putSticket}>
+                    
+                </button>
+                <button className="btn capture-btn" onClick={this.takeSelfie}>
+                    
+                </button>
+                <button className="btn capture-btn" onClick={this.putFilter}>
+                    
+                </button>
+            </div>
+            }
+
+
+            <canvas ref={this.canvasEle} style={{ display: 'none' }}></canvas>
+            {this.state.imageURL !== '' && <div className="preview">
+                <img className="preview-img" src={this.state.imageURL} ref={this.imageEle} />
+
+                <div className="btn-container">
+                    <button className="btn back-btn" onClick={this.backToCam}>
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <a href={this.state.imageURL} download="selfie.png"
+                        className="btn download-btn">
+                        <i class="fa fa-download" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+            </div>
+            }
+
+        </div>)
+    }
 }
+
+export default Booth;
