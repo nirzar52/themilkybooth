@@ -9,10 +9,7 @@ export default function Howitworks() {
                         <section className="cell large-5 small-12 left-work">
                             <div className="framePic">
                                 <div>
-                                <img src="images/pic.png" className="outer" />
-                                </div>
-                                <div className="pic">
-                                <img src="images/frameN.png" className="inner" />
+                                <img src="images/framePic.png" className="outer" />
                                 </div>
                             </div>
                             <div className="picText">
@@ -32,7 +29,7 @@ export default function Howitworks() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="../images/step1.png" className="step" />
+                                                <img src="images/step1.png" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -50,7 +47,7 @@ export default function Howitworks() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="../images/step2.png" className="step" />
+                                                <img src="images/step2.png" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -68,7 +65,7 @@ export default function Howitworks() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="../images/step3.png" className="step" />
+                                                <img src="images/step3.png" className="step" />
                                             </div>
                                         </section>
                                     </section>

@@ -633,7 +633,7 @@ legend {
 }
 
 canvas.lower-canvas {
-  /* background-image: url(../images/Transparent.png); */
+  /* background-image: url(images/Transparent.png); */
   background-size: cover;
   background-position: center;
 

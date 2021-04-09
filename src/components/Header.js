@@ -9,7 +9,7 @@ function Header() {
                         <section className="top-bar-left logo">
                             <a href="index.html">
                                 <img
-                                    src="../images/logo_booth.png"
+                                    src="images/logo_booth.png"
                                     alt="The Milky Booth"
                                 />
                             </a>
@@ -19,7 +19,7 @@ function Header() {
                                 <li>
                                     <a href="#">
                                         <img
-                                            src="../images/facebook.png"
+                                            src="images/facebook.png"
                                             alt="facebook"
                                         />
                                     </a>
@@ -27,7 +27,7 @@ function Header() {
                                 <li>
                                     <a href="#">
                                         <img
-                                            src="../images/instagram.png"
+                                            src="images/instagram.png"
                                             alt="instagram"
                                         />
                                     </a>
@@ -35,7 +35,7 @@ function Header() {
                                 <li>
                                     <a href="#">
                                         <img
-                                            src="../images/youtube.png"
+                                            src="images/youtube.png"
                                             alt="youtube"
                                         />
                                     </a>
@@ -60,7 +60,7 @@ function Header() {
                         <section className="grid-y grid-padding-y confirm-container">
                             <section className="confirm-svg">
                                 <img
-                                    src="../images/true.png"
+                                    src="images/true.png"
                                     alt="Confirmation"
                                 />
                             </section>
