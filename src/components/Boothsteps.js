@@ -1,4 +1,8 @@
 import React from "react";
+import step1 from "../images/step1.png";
+import step2 from "../images/step2.png";
+import step3 from "../images/step3.png";
+import step4 from "../images/step4.png";
 
 export default function Boothsteps() {
     return(
@@ -19,7 +23,7 @@ export default function Boothsteps() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step1.png" className="step" />
+                                                <img src={step1} alt="Step1" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -37,7 +41,7 @@ export default function Boothsteps() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step2.png" className="step" />
+                                                <img src={step2} alt="Step2" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -55,7 +59,7 @@ export default function Boothsteps() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step3.png" className="step" />
+                                                <img src={step3} alt="Step3" className="step" />
                                             </div>
                                         </section>
                                     </section>
@@ -73,7 +77,7 @@ export default function Boothsteps() {
                                         </section>
                                         <section className="cell large-8 small-12">
                                             <div id="circle">
-                                                <img src="images/step4.png" className="step" />
+                                                <img src={step4} alt="Step4" className="step" />
                                             </div>
                                         </section>
                                     </section>

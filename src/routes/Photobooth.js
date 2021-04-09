@@ -1,9 +1,10 @@
 import React from 'react'
-import Boothtitle from "../views/Boothtitle";
-import Booth from "../views/Booth";
-import Boothsteps from "../views/Boothsteps";
+import Boothtitle from "../components/Boothtitle";
+import Booth from "../components/Booth";
+import Boothsteps from "../components/Boothsteps";
 
 export const Photobooth = () => {
+
 
     return (
         <>

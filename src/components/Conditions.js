@@ -14,8 +14,6 @@ export default class Conditions extends Component {
             <section className="grid-container">
 
                 <Accordion>
-                    <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation.min.css' />
-                    <link rel='stylesheet' type='text/css' href='https://foundation.zurb.com/sites/docs/assets/css/docs.css?v=0f9f1d458bff7868a6b3ac9945aaeb42' />
                     <AccordionItem isActive={this.state.activeIndex === 1} onClick={(e) => { this.setState({ activeIndex: 1 }) }}>
                         <AccordionTitle>1. How does the Photo Booth service work?</AccordionTitle>
                         <AccordionContent isActive={this.state.activeIndex === 1} onClick={(e) => { this.setState({ activeIndex: 1 }) }}>

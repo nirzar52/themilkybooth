@@ -3,130 +3,131 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export const NameForm = () => {
-    function ValidationCheck(values) {
-        let errors = {};
 
-        if (!values.firstName) {
-            errors.firstName = "First Name required";
-        } else if (!/^[a-zA-z]+$/.test(values.firstName)) {
-            errors.firstName = "First Name is Invalid";
-        }
+    // function ValidationCheck(values) {
+    //     let errors = {};
 
-        // lastName
+    //     if (!values.firstName) {
+    //         errors.firstName = "First Name required";
+    //     } else if (!/^[a-zA-z]+$/.test(values.firstName)) {
+    //         errors.firstName = "First Name is Invalid";
+    //     }
 
-        if (!values.lastName) {
-            errors.lastName = "lastName required";
-        } else if (!/^[a-zA-z]+$/.test(values.lastName)) {
-            errors.lastName = "last name is invalids";
-        }
+    //     // lastName
 
-        // email
+    //     if (!values.lastName) {
+    //         errors.lastName = "lastName required";
+    //     } else if (!/^[a-zA-z]+$/.test(values.lastName)) {
+    //         errors.lastName = "last name is invalids";
+    //     }
 
-        if (!values.email) {
-            errors.email = " email required";
-        } else if (
-            !/^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-                values.email
-            )
-        ) {
-            errors.email = "Email Address is Invalid";
-        }
+    //     // email
 
-        // password
+    //     if (!values.email) {
+    //         errors.email = " email required";
+    //     } else if (
+    //         !/^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+    //             values.email
+    //         )
+    //     ) {
+    //         errors.email = "Email Address is Invalid";
+    //     }
 
-        if (!values.password) {
-            errors.password = "Password required";
-        } else if (
-            !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,16}$/.test(values.password)
-        ) {
-            errors.password =
-                "Password is invalid, it should have 1 Capital letter, 1 regular letter, 1 number and 1 special character";
-        }
+    //     // password
 
-        // confirm password
+    //     if (!values.password) {
+    //         errors.password = "Password required";
+    //     } else if (
+    //         !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,16}$/.test(values.password)
+    //     ) {
+    //         errors.password =
+    //             "Password is invalid, it should have 1 Capital letter, 1 regular letter, 1 number and 1 special character";
+    //     }
 
-        if (!values.confirmPassword) {
-            errors.confirmPassword = "Password is not the same!";
-        } else if (values.confirmPassword !== values.password) {
-            errors.confirmPassword = "Password is not the same!";
-        }
+    //     // confirm password
 
-        // phone
+    //     if (!values.confirmPassword) {
+    //         errors.confirmPassword = "Password is not the same!";
+    //     } else if (values.confirmPassword !== values.password) {
+    //         errors.confirmPassword = "Password is not the same!";
+    //     }
 
-        if (!values.phone) {
-            errors.phone = "Phone required";
-        } else if (
-            !/^[\\(]{0,1}([0-9]){3}[\\)]{0,1}[ ]?([^0-1]){1}([0-9]){2}[ ]?[-]?[ ]?([0-9]){4}[ ]*((x){0,1}([0-9]){1,5}){0,1}$/.test(
-                values.phone
-            )
-        ) {
-            errors.phone = "Phone Number is Invalid";
-        }
+    //     // phone
 
-        // DateOfBirth
+    //     if (!values.phone) {
+    //         errors.phone = "Phone required";
+    //     } else if (
+    //         !/^[\\(]{0,1}([0-9]){3}[\\)]{0,1}[ ]?([^0-1]){1}([0-9]){2}[ ]?[-]?[ ]?([0-9]){4}[ ]*((x){0,1}([0-9]){1,5}){0,1}$/.test(
+    //             values.phone
+    //         )
+    //     ) {
+    //         errors.phone = "Phone Number is Invalid";
+    //     }
 
-        if (!values.DateOfBirth) {
-            errors.DateOfBirth = "Date Of Birth Required";
-        } else if (
-            !/^(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/.test(
-                values.DateOfBirth
-            )
-        ) {
-            errors.DateOfBirth = "Date Of Birth is Invalid";
-        }
+    //     // DateOfBirth
 
-        // address
+    //     if (!values.DateOfBirth) {
+    //         errors.DateOfBirth = "Date Of Birth Required";
+    //     } else if (
+    //         !/^(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/.test(
+    //             values.DateOfBirth
+    //         )
+    //     ) {
+    //         errors.DateOfBirth = "Date Of Birth is Invalid";
+    //     }
 
-        if (!values.address) {
-            errors.address = "Address Line Required";
-        } else if (!/^\d+\s[A-z]+(\s[A-z]+$)?/.test(values.address)) {
-            errors.address = "Address is Invalid";
-        }
+    //     // address
 
-        // address2
+    //     if (!values.address) {
+    //         errors.address = "Address Line Required";
+    //     } else if (!/^\d+\s[A-z]+(\s[A-z]+$)?/.test(values.address)) {
+    //         errors.address = "Address is Invalid";
+    //     }
 
-        // if (!values.address2) {
-        //     errors.address2 = "address line 2 required";
-        // } else if (!/^\d+\s[A-z]+(\s[A-z]+$)?/.test(values.address2)) {
-        //     errors.address2 = "address is invalid";
-        // }
+    //     // address2
 
-        // city
+    //     // if (!values.address2) {
+    //     //     errors.address2 = "address line 2 required";
+    //     // } else if (!/^\d+\s[A-z]+(\s[A-z]+$)?/.test(values.address2)) {
+    //     //     errors.address2 = "address is invalid";
+    //     // }
 
-        if (!values.city) {
-            errors.city = "City required";
-        } else if (
-            !/^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/.test(
-                values.city
-            )
-        ) {
-            errors.city = "City Name is Invalid";
-        }
+    //     // city
 
-        // province
+    //     if (!values.city) {
+    //         errors.city = "City required";
+    //     } else if (
+    //         !/^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/.test(
+    //             values.city
+    //         )
+    //     ) {
+    //         errors.city = "City Name is Invalid";
+    //     }
 
-        if (!values.province) {
-            errors.province = "Province Required";
-        } else if (
-            !/^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/.test(
-                values.province
-            )
-        ) {
-            errors.province = "Province Name is Invalid";
-        }
+    //     // province
 
-        // postal
+    //     if (!values.province) {
+    //         errors.province = "Province Required";
+    //     } else if (
+    //         !/^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/.test(
+    //             values.province
+    //         )
+    //     ) {
+    //         errors.province = "Province Name is Invalid";
+    //     }
 
-        if (!values.postalCode) {
-            errors.postalCode = "Postal Code Required";
-        } else if (
-            !/^([A-Za-z]\d[A-Za-z][-\s]?\d[A-Za-z]\d)$/.test(values.postalCode)
-        ) {
-            errors.postalCode = "Postal Code is Invalid";
-        }
+    //     // postal
 
-        return errors;
-    }
+    //     if (!values.postalCode) {
+    //         errors.postalCode = "Postal Code Required";
+    //     } else if (
+    //         !/^([A-Za-z]\d[A-Za-z][-\s]?\d[A-Za-z]\d)$/.test(values.postalCode)
+    //     ) {
+    //         errors.postalCode = "Postal Code is Invalid";
+    //     }
+
+    //     return errors;
+    // }
 }
 
 export default NameForm;

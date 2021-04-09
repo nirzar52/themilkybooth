@@ -1,4 +1,8 @@
 import React from "react";
+import logo from "../images/logo_booth.png";
+import facebookIcon from "../images/facebook.png";
+import instagramIcon from "../images/instagram.png";
+import youtubeIcon from "../images/youtube.png";
 
 function Header() {
     return (
@@ -9,7 +13,7 @@ function Header() {
                         <section className="top-bar-left logo">
                             <a href="index.html">
                                 <img
-                                    src="images/logo_booth.png"
+                                    src={logo}
                                     alt="The Milky Booth"
                                 />
                             </a>
@@ -17,84 +21,31 @@ function Header() {
                         <section className="top-bar-right">
                             <ul className="social-menu">
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/" target="_blank">
                                         <img
-                                            src="images/facebook.png"
+                                            src={facebookIcon}
                                             alt="facebook"
                                         />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.instagram.com/" target="_blank">
                                         <img
-                                            src="images/instagram.png"
+                                            src={instagramIcon}
                                             alt="instagram"
                                         />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.youtube.com/" target="_blank">
                                         <img
-                                            src="images/youtube.png"
+                                            src={youtubeIcon}
                                             alt="youtube"
                                         />
                                     </a>
                                 </li>
                             </ul>
                         </section>
-                    </section>
-                </section>
-
-                <p className="confirmBtn">
-                    <button
-                        className="button"
-                        id="successRevealBtn"
-                        data-open="successReveal"
-                    >
-                        Click Me
-                    </button>
-                </p>
-
-                <section className="reveal" id="successReveal" data-reveal>
-                    <section className="success-container">
-                        <section className="grid-y grid-padding-y confirm-container">
-                            <section className="confirm-svg">
-                                <img
-                                    src="images/true.png"
-                                    alt="Confirmation"
-                                />
-                            </section>
-                            <section className="grid-x">
-                                <section className="cell large-8 confirm-message">
-                                    <section className="grid-y grid-padding-y text-center">
-                                        <section className="cell confirmation">
-                                            <h2>Congratulations!</h2>
-                                        </section>
-                                        <section className="cell confirmation">
-                                            <p>
-                                                You are successfully registered
-                                                for the contest!
-                                            </p>
-                                        </section>
-                                        <section className="cell confirmation">
-                                            <a href="./index.html">
-                                                <section className="button">
-                                                    Continue
-                                                </section>
-                                            </a>
-                                        </section>
-                                    </section>
-                                </section>
-                            </section>
-                        </section>
-                        <button
-                            className="close-button"
-                            data-close
-                            aria-label="Close modal"
-                            type="button"
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </section>
                 </section>
             </header>
