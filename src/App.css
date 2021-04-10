@@ -395,6 +395,31 @@ select {
     color: #333;
 }
 
+.css-yk16xz-control,
+.css-g1d714-ValueContainer,
+.css-1hb7zxy-IndicatorsContainer {
+    position: relative;
+    margin: 0;
+    margin-top: 1px;
+    padding: 0;
+    height: 38px;
+    border-radius: 0;
+    background-color: none;
+    border: 1px solid #879294;
+    box-shadow: none;
+    font-size: 14px;
+    color: #333;
+}
+
+.css-yk16xz-control {
+    border-color: transparent !important;
+}
+
+.css-1okebmr-indicatorSeparator,
+.css-b8ldur-Input {
+    display: none;
+}
+
 .inputBox {
     margin-bottom: 0px;
     height: 38px;
@@ -449,11 +474,24 @@ label {
     margin-bottom: 5px;
 }
 
-.ErrorMsg {
+.errorMsg {
     color: #ff0606;
+    text-transform: capitalize;
     font-size: small;
     padding: 0;
 }
+
+::-webkit-input-placeholder,
+:-ms-input-placeholder,
+::placeholder {
+    /* Edge */
+    text-transform: capitalize;
+}
+
+label {
+    margin-bottom: 2em;
+}
+
 
 legend {
     font-size: 24px;
