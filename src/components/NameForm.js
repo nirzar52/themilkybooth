@@ -1,8 +1,5 @@
-import { withRouter } from "react-router-dom";
+export default function ValidationCheck(values) {
 
-export const NameForm = () => {
-
-    function ValidationCheck(values) {
         let errors = {};
 
         if (!values.firstName) {
@@ -125,7 +122,5 @@ export const NameForm = () => {
         }
 
         return errors;
-    }
+    
 }
-
-export default NameForm;
