@@ -5,13 +5,13 @@ export default function ValidationCheck(values) {
         if (!values.firstName) {
             errors.firstName = "First Name required";
         } else if (!/^[a-zA-z]+$/.test(values.firstName)) {
-            errors.firstName = "First Name is Invalid";
+            errors.firstName = "Please enter a valid first name";
         }
 
         // lastName
 
         if (!values.lastName) {
-            errors.lastName = "lastName required";
+            errors.lastName = "Please enter a valid last name";
         } else if (!/^[a-zA-z]+$/.test(values.lastName)) {
             errors.lastName = "last name is invalids";
         }
@@ -25,26 +25,7 @@ export default function ValidationCheck(values) {
                 values.email
             )
         ) {
-            errors.email = "Email Address is Invalid";
-        }
-
-        // password
-
-        if (!values.password) {
-            errors.password = "Password required";
-        } else if (
-            !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,16}$/.test(values.password)
-        ) {
-            errors.password =
-                "Password is invalid, it should have 1 Capital letter, 1 regular letter, 1 number and 1 special character";
-        }
-
-        // confirm password
-
-        if (!values.confirmPassword) {
-            errors.confirmPassword = "Password is not the same!";
-        } else if (values.confirmPassword !== values.password) {
-            errors.confirmPassword = "Password is not the same!";
+            errors.email = "Please enter a valid email address";
         }
 
         // phone
@@ -56,7 +37,7 @@ export default function ValidationCheck(values) {
                 values.phone
             )
         ) {
-            errors.phone = "Phone Number is Invalid";
+            errors.phone = "Please enter a valid phone number";
         }
 
         // DateOfBirth
@@ -68,7 +49,7 @@ export default function ValidationCheck(values) {
                 values.DateOfBirth
             )
         ) {
-            errors.DateOfBirth = "Date Of Birth is Invalid";
+            errors.DateOfBirth = "Please enter a valid age";
         }
 
         // address
@@ -76,16 +57,8 @@ export default function ValidationCheck(values) {
         if (!values.address) {
             errors.address = "Address Line Required";
         } else if (!/^\d+\s[A-z]+(\s[A-z]+$)?/.test(values.address)) {
-            errors.address = "Address is Invalid";
+            errors.address = "Please enter a valid address";
         }
-
-        // address2
-
-        // if (!values.address2) {
-        //     errors.address2 = "address line 2 required";
-        // } else if (!/^\d+\s[A-z]+(\s[A-z]+$)?/.test(values.address2)) {
-        //     errors.address2 = "address is invalid";
-        // }
 
         // city
 
@@ -96,19 +69,7 @@ export default function ValidationCheck(values) {
                 values.city
             )
         ) {
-            errors.city = "City Name is Invalid";
-        }
-
-        // province
-
-        if (!values.province) {
-            errors.province = "Province Required";
-        } else if (
-            !/^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/.test(
-                values.province
-            )
-        ) {
-            errors.province = "Province Name is Invalid";
+            errors.city = "Please enter a valid city";
         }
 
         // postal
@@ -118,7 +79,7 @@ export default function ValidationCheck(values) {
         } else if (
             !/^([A-Za-z]\d[A-Za-z][-\s]?\d[A-Za-z]\d)$/.test(values.postalCode)
         ) {
-            errors.postalCode = "Postal Code is Invalid";
+            errors.postalCode = "Please enter a valid postal code";
         }
 
         return errors;

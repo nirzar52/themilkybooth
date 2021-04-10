@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import Formtitle from "../components/Formtitle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import NameForm from "../components/NameForm";
 import { Link } from "react-router-dom";
 
 function Form(props) {
