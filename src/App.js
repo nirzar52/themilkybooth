@@ -13,6 +13,7 @@ import NameForm from "./components/NameForm";
 import Home from "./routes/Home";
 import Terms from "./routes/Terms";
 import Photobooth from "./routes/Photobooth";
+import Form from "./routes/Form";
 import Thanks from "./routes/Thanks";
 
 import './App.css';
@@ -41,7 +42,7 @@ function App() {
 
                     <Switch>
                         <Route exact path="/"><Home /></Route>
-                        <Route path="/form" children={<NameForm handleChange={(e) => handleChange(e)} />} />
+                        <Route path="/form" component={Form} />
                         <Route path="/terms" component={Terms} />
                         <Route path="/photobooth" component={Photobooth} />
                         <Route path="/thanks" component={Thanks} />
