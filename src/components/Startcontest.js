@@ -13,7 +13,7 @@ function Startcontest(props) {
             <section className="grid-x grid-padding-x">
                 <section className="cell large-12 small-12 text-center">
                     <h1>Are you exicted to join the content?</h1>
-                    <a onClick={goToForm} className="button contest-btn" id="contestButton">Sign Up</a>
+                    <a onClick={goToForm} className="button contest-btn" id="contestButton">Start Contest</a>
                 </section>
             </section>
         </section>

@@ -1,14 +1,12 @@
 import { React, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { Grid, Cell } from "react-foundation";
 import "foundation-sites/dist/css/foundation.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import NameForm from "./components/NameForm";
 
 import Home from "./routes/Home";
 import Terms from "./routes/Terms";
@@ -31,15 +29,6 @@ function App() {
             <Router>
                 <Header />
                 <div className="App">
-                    <div className="grid-basics-example">
-                        <Grid className="display text-center">
-                            <Cell small={6} large={3}><Link to="/">Home</Link></Cell>
-                            <Cell small={6} large={3}><Link to="/form">Form</Link></Cell>
-                            <Cell small={6} large={3}><Link to="/terms">Terms Of Use</Link></Cell>
-                            <Cell small={6} large={3}><Link to="/photobooth">Photobooth</Link></Cell>
-                        </Grid>
-                    </div>
-
                     <Switch>
                         <Route exact path="/"><Home /></Route>
                         <Route path="/form" component={Form} />
