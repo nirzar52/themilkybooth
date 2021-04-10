@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 function Footer(props) {
     function goToTerms(e) {
@@ -25,4 +26,4 @@ function Footer(props) {
     );
 }
 
-export default Footer;
+export default withRouter(Footer);

@@ -176,13 +176,13 @@ main {
 }
 
 .fadeInUpSD {
-    animation: fadeInUpSD ease 5s;
-    -webkit-animation: fadeInUpSD ease 5s;
+    animation: fadeInUpSD ease 1.5s;
+    -webkit-animation: fadeInUpSD ease 1.5s;
 }
 
 .slick-active .slide-content {
-    animation: fadeInUpSD ease 5s;
-    -webkit-animation: fadeInUpSD ease 5s;
+    animation: fadeInUpSD ease 1.5s;
+    -webkit-animation: fadeInUpSD ease 1.5s;
     opacity: 1;
     width: 100%;
 }
@@ -743,7 +743,6 @@ img#photo {
 .download-btn {
     margin-left: 25px;
 }
-
 
 .buttons-container {
     background-color: black;

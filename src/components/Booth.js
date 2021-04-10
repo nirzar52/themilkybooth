@@ -94,11 +94,11 @@ class Booth extends Component {
 
                         <div className="btn-container">
                             <button className="btn back-btn" onClick={this.backToCam}>
-                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                BACK
                             </button>
                             <a href={this.state.imageURL} download="selfie.png"
                                 className="btn download-btn">
-                                <i class="fa fa-download" aria-hidden="true"></i>
+                                DOWNLOAD
                             </a>
                         </div>
 

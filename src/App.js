@@ -27,8 +27,8 @@ function App() {
 
     return (
         <>
-            <Header />
             <Router>
+                <Header />
                 <div className="App">
                     <div className="grid-basics-example">
                         <Grid className="display text-center">
@@ -47,8 +47,8 @@ function App() {
                         <Route path="/thanks" component={Thanks} />
                     </Switch>
                 </div>
+                <Footer />
             </Router>
-            <Footer />
         </>
     );
 }
